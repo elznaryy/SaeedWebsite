@@ -1,0 +1,503 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 158 15% 18%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 158 14% 28%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 37 28% 50%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 158 15% 18%;
+    --foreground: 210 40% 98%;
+
+    --card: 158 15% 18%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 158 15% 18%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 37 28% 50%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 158 14% 28%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 86 12% 86%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Custom cursor styles */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.2s ease;
+}
+
+.cursor-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.cursor-outline {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transition: all 0.2s ease-out;
+}
+
+.cursor-hover .cursor-outline {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Magnetic button effect */
+.magnetic-button {
+  position: relative;
+  display: inline-block;
+}
+
+/* Text reveal animation */
+.reveal-text {
+  position: relative;
+  overflow: hidden;
+}
+
+.reveal-text span {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+/* Smooth scrollbar */
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+/* Parallax section */
+.parallax {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+/* Marquee animation */
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Image hover effects */
+.image-hover {
+  overflow: hidden;
+}
+
+.image-hover img {
+  transition: transform 0.5s ease;
+}
+
+.image-hover:hover img {
+  transform: scale(1.05);
+}
+
+/* Text gradient */
+.text-gradient {
+  background: linear-gradient(90deg, #00adb5, #3a4750);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Split text animation */
+.split-text-animation .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.split-text-animation.animate .char {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animation delay for characters */
+.split-text-animation .char:nth-child(1) {
+  transition-delay: 0.05s;
+}
+.split-text-animation .char:nth-child(2) {
+  transition-delay: 0.1s;
+}
+.split-text-animation .char:nth-child(3) {
+  transition-delay: 0.15s;
+}
+.split-text-animation .char:nth-child(4) {
+  transition-delay: 0.2s;
+}
+.split-text-animation .char:nth-child(5) {
+  transition-delay: 0.25s;
+}
+.split-text-animation .char:nth-child(6) {
+  transition-delay: 0.3s;
+}
+.split-text-animation .char:nth-child(7) {
+  transition-delay: 0.35s;
+}
+.split-text-animation .char:nth-child(8) {
+  transition-delay: 0.4s;
+}
+.split-text-animation .char:nth-child(9) {
+  transition-delay: 0.45s;
+}
+.split-text-animation .char:nth-child(10) {
+  transition-delay: 0.5s;
+}
+/* Add more if needed */
+
+/* Mask reveal animation */
+.mask-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+.mask-reveal::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #303841;
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.mask-reveal.reveal::after {
+  transform: translateX(0);
+}
+
+.mask-reveal.reveal-complete::after {
+  transform: translateX(100%);
+}
+
+/* Scroll progress indicator */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #00adb5;
+  z-index: 9999;
+  transition: width 0.1s ease;
+}
+
+/* Noise texture overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* Horizontal scroll section */
+.horizontal-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.horizontal-scroll > * {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+/* Skew scroll effect */
+.skew-scroll {
+  transition: transform 0.5s ease;
+}
+
+/* Glitch effect */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -1px 0 #00adb5;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -1px 0 #3a4750;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(42px, 9999px, 44px, 0);
+  }
+  5% {
+    clip: rect(12px, 9999px, 59px, 0);
+  }
+  10% {
+    clip: rect(48px, 9999px, 29px, 0);
+  }
+  15% {
+    clip: rect(42px, 9999px, 73px, 0);
+  }
+  20% {
+    clip: rect(63px, 9999px, 27px, 0);
+  }
+  25% {
+    clip: rect(34px, 9999px, 55px, 0);
+  }
+  30% {
+    clip: rect(86px, 9999px, 73px, 0);
+  }
+  35% {
+    clip: rect(20px, 9999px, 20px, 0);
+  }
+  40% {
+    clip: rect(26px, 9999px, 60px, 0);
+  }
+  45% {
+    clip: rect(25px, 9999px, 66px, 0);
+  }
+  50% {
+    clip: rect(57px, 9999px, 98px, 0);
+  }
+  55% {
+    clip: rect(5px, 9999px, 46px, 0);
+  }
+  60% {
+    clip: rect(82px, 9999px, 31px, 0);
+  }
+  65% {
+    clip: rect(54px, 9999px, 27px, 0);
+  }
+  70% {
+    clip: rect(28px, 9999px, 99px, 0);
+  }
+  75% {
+    clip: rect(45px, 9999px, 69px, 0);
+  }
+  80% {
+    clip: rect(23px, 9999px, 85px, 0);
+  }
+  85% {
+    clip: rect(54px, 9999px, 84px, 0);
+  }
+  90% {
+    clip: rect(45px, 9999px, 47px, 0);
+  }
+  95% {
+    clip: rect(37px, 9999px, 20px, 0);
+  }
+  100% {
+    clip: rect(4px, 9999px, 91px, 0);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(65px, 9999px, 100px, 0);
+  }
+  5% {
+    clip: rect(52px, 9999px, 74px, 0);
+  }
+  10% {
+    clip: rect(79px, 9999px, 85px, 0);
+  }
+  15% {
+    clip: rect(75px, 9999px, 5px, 0);
+  }
+  20% {
+    clip: rect(67px, 9999px, 61px, 0);
+  }
+  25% {
+    clip: rect(14px, 9999px, 79px, 0);
+  }
+  30% {
+    clip: rect(1px, 9999px, 66px, 0);
+  }
+  35% {
+    clip: rect(86px, 9999px, 30px, 0);
+  }
+  40% {
+    clip: rect(23px, 9999px, 98px, 0);
+  }
+  45% {
+    clip: rect(85px, 9999px, 72px, 0);
+  }
+  50% {
+    clip: rect(71px, 9999px, 75px, 0);
+  }
+  55% {
+    clip: rect(2px, 9999px, 48px, 0);
+  }
+  60% {
+    clip: rect(30px, 9999px, 16px, 0);
+  }
+  65% {
+    clip: rect(59px, 9999px, 50px, 0);
+  }
+  70% {
+    clip: rect(41px, 9999px, 62px, 0);
+  }
+  75% {
+    clip: rect(2px, 9999px, 82px, 0);
+  }
+  80% {
+    clip: rect(47px, 9999px, 73px, 0);
+  }
+  85% {
+    clip: rect(3px, 9999px, 27px, 0);
+  }
+  90% {
+    clip: rect(26px, 9999px, 55px, 0);
+  }
+  95% {
+    clip: rect(42px, 9999px, 97px, 0);
+  }
+  100% {
+    clip: rect(38px, 9999px, 49px, 0);
+  }
+}
+
+@layer utilities {
+  .marquee {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 20%,
+      black 80%,
+      transparent
+    );
+  }
+}
+
