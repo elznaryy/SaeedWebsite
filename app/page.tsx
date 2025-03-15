@@ -16,7 +16,7 @@ export default function Home() {
       <Portfolio />
       <Clients />
       <Testimonials />
-      <Blog />
+      {/* <Blog /> */}
       <Contact />
     </>
   )

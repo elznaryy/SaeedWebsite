@@ -7,6 +7,7 @@ import Footer from "@/components/footer"
 import { Toaster } from "@/components/ui/toaster"
 import { Analytics } from "@/components/analytics"
 import { MousePositionProvider } from "@/components/mouse-position-provider"
+import { Toaster as HotToaster } from 'react-hot-toast'
 
 const courier = Courier_Prime({
   subsets: ["latin"],
@@ -33,6 +34,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
           <Toaster />
+          <HotToaster position="bottom-right" />
           <Analytics />
         </MousePositionProvider>
       </body>

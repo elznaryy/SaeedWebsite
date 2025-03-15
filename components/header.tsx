@@ -51,7 +51,7 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex gap-8">
-          {["About", "Services", "Portfolio", "Clients", "Blog", "Contact"].map((item) => (
+          {["About", "Services", "Portfolio", "Clients", "Contact"].map((item) => (
             <Link
               key={item}
               href={`/#${item.toLowerCase()}`}
@@ -103,7 +103,7 @@ export default function Header() {
       {isMenuOpen && (
         <div className="fixed inset-0 top-16 z-40 bg-muted/95 backdrop-blur-md md:hidden">
           <nav className="flex flex-col items-center justify-center h-full gap-8">
-            {["About", "Services", "Portfolio", "Clients", "Blog", "Contact"].map((item, i) => (
+            {["About", "Services", "Portfolio", "Clients", "Contact"].map((item, i) => (
               <Link
                 key={item}
                 href={`/#${item.toLowerCase()}`}

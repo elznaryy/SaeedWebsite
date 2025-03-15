@@ -31,7 +31,7 @@ export default function Hero() {
       {/* Content */}
       <div className="container relative z-20 px-4 md:px-6">
         <div
-          className={`max-w-2xl transition-all duration-1000 mt-[60vh] sm:mt-[40vh] md:mt-0 ${
+          className={`max-w-2xl transition-all duration-1000 mt-[55vh] sm:mt-[40vh] md:mt-0 ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
@@ -51,7 +51,7 @@ export default function Hero() {
             Find inspiration, share your vision
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-6">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
             <MagneticButton 
               asChild 
               size="lg" 
@@ -68,10 +68,10 @@ export default function Hero() {
               asChild
               size="lg"
               variant="outline"
-              className="w-full sm:w-auto border-2 border-[#FFFAEC] bg-black/30 text-[#FFFAEC] hover:bg-[#FFFAEC] hover:text-secondary transition-all duration-300"
+              className="w-full sm:w-auto border-2 border-[#FFFAEC] bg-black/30 text-[#FFFAEC] hover:bg-[#FFFAEC] hover:text-secondary transition-all duration-300 text-sm sm:text-base"
               strength={40}
             >
-              <Link href="/#contact" className="flex items-center justify-center">
+              <Link href="/#contact" className="flex items-center justify-center py-2 sm:py-3">
                 Let's Connect
               </Link>
             </MagneticButton>

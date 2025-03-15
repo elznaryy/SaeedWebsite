@@ -1,7 +1,5 @@
 "use client"
 
-import { useRef, useState } from "react"
-import { motion } from "framer-motion"
 import Image from "next/image"
 
 interface Client {
@@ -63,14 +61,8 @@ const clients: Client[] = [
 ]
 
 export default function Clients() {
-  const marqueeRef = useRef<HTMLDivElement>(null)
-  const [isHovered, setIsHovered] = useState(false)
-
-  // Triple the clients array for better continuous scrolling
-  const tripleClients = [...clients, ...clients, ...clients]
-
   return (
-    <section id="clients" className="py-20 bg-background overflow-hidden">
+    <section id="clients" className="py-20 bg-background">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="text-center mb-16">
           <div className="mb-2 inline-block py-1 px-3 bg-primary/10 rounded-full">
@@ -86,43 +78,24 @@ export default function Clients() {
           </p>
         </div>
 
-        <div className="overflow-hidden px-4 sm:px-0">
-          <motion.div
-            ref={marqueeRef}
-            className="flex gap-4 sm:gap-8 items-center"
-            animate={{ 
-              x: isHovered ? 0 : "-33.33%" 
-            }}
-            initial={{ x: "-33.33%" }}
-            transition={{
-              x: {
-                duration: 15,
-                repeat: Infinity,
-                ease: "linear",
-                repeatType: "loop",
-              },
-            }}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            {tripleClients.map((client, index) => (
-              <motion.div
-                key={index}
-                className="relative h-24 sm:h-32 bg-white rounded-lg shadow-md p-3 sm:p-4 hover:shadow-lg transition-all duration-300 flex items-center justify-center group shrink-0"
-                whileHover={{ y: -5 }}
-              >
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+          {clients.map((client, index) => (
+            <div
+              key={client.name}
+              className="relative bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-all duration-300 group"
+            >
+              <div className="aspect-[2/1] relative flex items-center justify-center">
                 <Image
                   src={client.logo}
                   alt={client.name}
-                  width={client.width}
-                  height={client.height}
-                  className="max-w-[80%] max-h-[80%] object-contain transition-all duration-300 group-hover:scale-110 filter hover:brightness-110"
-                  priority={index < 8} // Prioritize loading first 8 images
+                  fill
+                  className="object-contain p-2 transition-transform duration-300 group-hover:scale-110"
+                  sizes="(max-width: 640px) 150px, 200px"
+                  priority={index < 4} // Load first 4 images immediately
                 />
-                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
-              </motion.div>
-            ))}
-          </motion.div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

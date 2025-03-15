@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin, Send, Loader2, Github, Linkedin, Instagram } from "lucide-react"
+import { toast } from "react-hot-toast"
 
 interface FormData {
   name: string
@@ -14,41 +15,98 @@ interface FormData {
   message: string
 }
 
+const contactInfo = [
+  {
+    title: "Email",
+    value: "muuhammad.saeed192@gmail.com",
+    link: "mailto:muuhammad.saeed192@gmail.com",
+    icon: <Mail className="w-5 h-5" />,
+  },
+  {
+    title: "Phone",
+    value: "+201094204021",
+    link: "tel:+201094204021",
+    icon: <Phone className="w-5 h-5" />,
+  },
+  {
+    title: "Location",
+    value: "Alexandria, Egypt",
+    link: "https://maps.google.com/?q=Alexandria,Egypt",
+    icon: <MapPin className="w-5 h-5" />,
+  },
+]
+
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/muhammad-saeed-228100162/",
+    icon: <Linkedin className="w-5 h-5" />,
+  },
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/saeedtalks1/",
+    icon: <Instagram className="w-5 h-5" />,
+  },
+]
+
 export default function Contact() {
-  const [formData, setFormData] = useState<FormData>({
+  const [isLoading, setIsLoading] = useState(false)
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
   })
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitSuccess, setSubmitSuccess] = useState(false)
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsLoading(true)
+
+    try {
+      const webhookData = {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        date: new Date().toISOString()
+      }
+
+      // Use the original webhook URL
+      const response = await fetch('https://hook.eu2.make.com/lb8euigp1ptufy7ruhxylpyzyb26d6t6', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(webhookData),
+      })
+
+      if (response.ok) {
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        })
+        toast.success("Message sent successfully!")
+      } else {
+        const errorText = await response.text()
+        console.error('Webhook error:', errorText)
+        toast.error("Failed to send message. Please try again.")
+      }
+    } catch (error) {
+      console.error('Submission error:', error)
+      toast.error("Something went wrong. Please try again later.")
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setSubmitSuccess(true)
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      })
-
-      setTimeout(() => {
-        setSubmitSuccess(false)
-      }, 5000)
-    }, 1500)
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
   }
 
   return (
@@ -84,58 +142,35 @@ export default function Contact() {
             <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
               <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
               <div className="space-y-6">
-                <a
-                  href="mailto:saeed@example.com"
-                  className="flex items-center gap-4 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-colors group"
-                >
-                  <div className="bg-primary/10 p-3 rounded-lg group-hover:scale-110 transition-transform">
-                    <Mail className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-medium">Email</p>
-                    <p className="text-muted-foreground">saeed@example.com</p>
-                  </div>
-                </a>
-
-                <a
-                  href="tel:+11234567890"
-                  className="flex items-center gap-4 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-colors group"
-                >
-                  <div className="bg-primary/10 p-3 rounded-lg group-hover:scale-110 transition-transform">
-                    <Phone className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-medium">Phone</p>
-                    <p className="text-muted-foreground">+1 (123) 456-7890</p>
-                  </div>
-                </a>
-
-                <div className="flex items-center gap-4 p-4 rounded-xl bg-primary/5">
-                  <div className="bg-primary/10 p-3 rounded-lg">
-                    <MapPin className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-medium">Location</p>
-                    <p className="text-muted-foreground">Cairo, Egypt</p>
-                  </div>
-                </div>
+                {contactInfo.map((info) => (
+                  <a
+                    key={info.title}
+                    href={info.link}
+                    className="flex items-center gap-4 p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-colors group"
+                  >
+                    <div className="bg-primary/10 p-3 rounded-lg group-hover:scale-110 transition-transform">
+                      {info.icon}
+                    </div>
+                    <div>
+                      <p className="font-medium">{info.title}</p>
+                      <p className="text-muted-foreground">{info.value}</p>
+                    </div>
+                  </a>
+                ))}
               </div>
 
               <div className="mt-8 pt-8 border-t border-primary/10">
                 <h4 className="font-medium mb-4">Connect With Me</h4>
                 <div className="flex gap-4">
-                  {[
-                    { icon: Github, href: "#", label: "Github" },
-                    { icon: Linkedin, href: "#", label: "LinkedIn" },
-                    { icon: Instagram, href: "#", label: "Instagram" },
-                  ].map((social) => (
+                  {socialLinks.map((social) => (
                     <a
-                      key={social.label}
-                      href={social.href}
+                      key={social.name}
+                      href={social.url}
                       className="bg-primary/5 p-3 rounded-lg hover:bg-primary/10 transition-colors group"
-                      aria-label={social.label}
+                      aria-label={social.name}
                     >
-                      <social.icon className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
+                      <span className="sr-only">{social.name}</span>
+                      {social.icon}
                     </a>
                   ))}
                 </div>
@@ -153,16 +188,6 @@ export default function Contact() {
           >
             <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
 
-            {submitSuccess && (
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-primary/10 border border-primary/20 text-primary px-4 py-3 rounded-lg mb-6"
-              >
-                Thank you for your message! I'll get back to you soon.
-              </motion.div>
-            )}
-
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -172,6 +197,7 @@ export default function Contact() {
                   <Input
                     id="name"
                     name="name"
+                    placeholder="Your Name"
                     value={formData.name}
                     onChange={handleChange}
                     required
@@ -186,6 +212,7 @@ export default function Contact() {
                     id="email"
                     name="email"
                     type="email"
+                    placeholder="Your Email"
                     value={formData.email}
                     onChange={handleChange}
                     required
@@ -201,6 +228,7 @@ export default function Contact() {
                 <Input
                   id="subject"
                   name="subject"
+                  placeholder="Subject"
                   value={formData.subject}
                   onChange={handleChange}
                   required
@@ -215,6 +243,7 @@ export default function Contact() {
                 <Textarea
                   id="message"
                   name="message"
+                  placeholder="Your Message"
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
@@ -226,9 +255,9 @@ export default function Contact() {
               <Button
                 type="submit"
                 className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
-                disabled={isSubmitting}
+                disabled={isLoading}
               >
-                {isSubmitting ? (
+                {isLoading ? (
                   <span className="flex items-center gap-2">
                     <Loader2 className="animate-spin h-4 w-4" />
                     Sending...

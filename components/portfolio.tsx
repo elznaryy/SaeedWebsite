@@ -37,6 +37,46 @@ const projects: Project[] = [
     vimeoHash: "c31bfb918c",
     description: "Compelling documentary storytelling",
   },
+  {
+    id: 4,
+    title: "NEOM-Upscale Film Making Camp",
+    category: "Documentary",
+    vimeoId: "1062044941",
+    vimeoHash: "b4048c75ca",
+    description: "Documentary showcasing the innovative film making camp at NEOM",
+  },
+  {
+    id: 5,
+    title: "Our Only World",
+    category: "Documentary",
+    vimeoId: "1062051132",
+    vimeoHash: "77247f5a99",
+    description: "Created and directed the storyline for this environmental awareness song, bringing a powerful message through visual storytelling.",
+  },
+  {
+    id: 6,
+    title: "Gammal Tech Documentary",
+    category: "Documentary",
+    vimeoId: "1062055541",
+    vimeoHash: "3910731b5f",
+    description: "A deep dive into the tech education revolution in MENA region",
+  },
+  {
+    id: 7,
+    title: "Saeed Talks",
+    category: "Series",
+    vimeoId: "1062079476",
+    vimeoHash: "cb033e182b",
+    description: "An educational series hosted by me, delivering insights and knowledge to aspiring creatives in the fields of storytelling and digital media.",
+  },
+  {
+    id: 8,
+    title: "G-Cast",
+    category: "Series",
+    vimeoId: "1062430579",
+    vimeoHash: "dedaa0f348",
+    description: "The first programming education podcast in the MENA region, hosted by me, bringing coding knowledge to Arabic speakers.",
+  },
 ]
 
 export default function Portfolio() {

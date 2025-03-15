@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { Pen, Film, VideoIcon, Camera, Edit, Megaphone } from "lucide-react"
+import { Pen, Film, Video, Camera, Scissors, Megaphone } from "lucide-react"
 
 interface Service {
   id: number
@@ -14,9 +14,9 @@ interface Service {
 const services: Service[] = [
   {
     id: 1,
-    title: "Video Editing",
-    description: "Professional video editing with attention to pacing, transitions, and storytelling.",
-    icon: <VideoIcon className="w-10 h-10 text-primary" />,
+    title: "Creative Copywriting",
+    description: "Compelling creative copywriting that engages your audience and drives action through storytelling.",
+    icon: <Pen className="w-10 h-10 text-primary" />,
   },
   {
     id: 2,
@@ -26,27 +26,27 @@ const services: Service[] = [
   },
   {
     id: 3,
-    title: "Motion Graphics",
-    description: "Dynamic motion graphics and animations that bring your content to life.",
+    title: "Directing",
+    description: "Creative direction and visual storytelling that brings your vision to life.",
     icon: <Film className="w-10 h-10 text-primary" />,
   },
   {
     id: 4,
-    title: "Copywriting",
-    description: "Compelling copywriting that engages your audience and drives action.",
-    icon: <Pen className="w-10 h-10 text-primary" />,
-  },
-  {
-    id: 5,
-    title: "Post-Production",
-    description: "Advanced post-production including color grading and sound design.",
-    icon: <Edit className="w-10 h-10 text-primary" />,
-  },
-  {
-    id: 6,
     title: "Brand Storytelling",
     description: "Strategic storytelling that connects your brand with your target audience.",
     icon: <Megaphone className="w-10 h-10 text-primary" />,
+  },
+  {
+    id: 5,
+    title: "Media Production",
+    description: "Full-scale media production services from concept to final delivery, including commercials and branded content.",
+    icon: <Video className="w-10 h-10 text-primary" />,
+  },
+  {
+    id: 6,
+    title: "Post-Production",
+    description: "Advanced post-production including color grading and sound design.",
+    icon: <Scissors className="w-10 h-10 text-primary" />,
   },
 ]
 

@@ -96,8 +96,8 @@ export default function About() {
                 <div className="bg-[#F5ECD5] p-6 rounded-lg shadow-md transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                   <h3 className="font-bold text-[#3D3D3D] text-base md:text-lg mb-1">Experience</h3>
                   <p className="text-[#578E7E] text-xl md:text-2xl font-bold">
-                    <span className="counter-value" data-target="10">
-                      0
+                    <span className="counter-value" data-target="4">
+                     4
                     </span>
                     + Years
                   </p>
@@ -106,30 +106,20 @@ export default function About() {
                 <div className="bg-[#F5ECD5] p-6 rounded-lg shadow-md transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                   <h3 className="font-bold text-[#3D3D3D] text-base md:text-lg mb-1">Projects</h3>
                   <p className="text-[#578E7E] text-xl md:text-2xl font-bold">
-                    <span className="counter-value" data-target="200">
-                      0
+                    <span className="counter-value" data-target="30">
+                      30
                     </span>
                     + Completed
                   </p>
                 </div>
 
-                <div className="bg-[#F5ECD5] p-6 rounded-lg shadow-md transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div className="bg-[#F5ECD5] p-6 rounded-lg shadow-md transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg col-span-1 sm:col-span-2">
                   <h3 className="font-bold text-[#3D3D3D] text-base md:text-lg mb-1">Clients</h3>
                   <p className="text-[#578E7E] text-xl md:text-2xl font-bold">
-                    <span className="counter-value" data-target="50">
-                      0
+                    <span className="counter-value" data-target="15">
+                      15
                     </span>
                     + Happy Clients
-                  </p>
-                </div>
-
-                <div className="bg-[#F5ECD5] p-6 rounded-lg shadow-md transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                  <h3 className="font-bold text-[#3D3D3D] text-base md:text-lg mb-1">Awards</h3>
-                  <p className="text-[#578E7E] text-xl md:text-2xl font-bold">
-                    <span className="counter-value" data-target="15">
-                      0
-                    </span>
-                    + Recognitions
                   </p>
                 </div>
               </div>
