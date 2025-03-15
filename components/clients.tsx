@@ -86,31 +86,29 @@ export default function Clients() {
           </p>
         </div>
 
-        <div 
-          ref={marqueeRef}
-          className="relative marquee"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
+        <div className="overflow-hidden px-4 sm:px-0">
           <motion.div
-            className="flex gap-8 items-center"
+            ref={marqueeRef}
+            className="flex gap-4 sm:gap-8 items-center"
             animate={{ 
               x: isHovered ? 0 : "-33.33%" 
             }}
             initial={{ x: "-33.33%" }}
             transition={{
               x: {
-                duration: 20,
+                duration: 15,
                 repeat: Infinity,
                 ease: "linear",
                 repeatType: "loop",
               },
             }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
             {tripleClients.map((client, index) => (
               <motion.div
                 key={index}
-                className="relative h-32 bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-all duration-300 flex items-center justify-center group shrink-0"
+                className="relative h-24 sm:h-32 bg-white rounded-lg shadow-md p-3 sm:p-4 hover:shadow-lg transition-all duration-300 flex items-center justify-center group shrink-0"
                 whileHover={{ y: -5 }}
               >
                 <Image

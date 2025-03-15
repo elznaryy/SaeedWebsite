@@ -99,8 +99,8 @@ export default function Testimonials() {
             transition={{ duration: 0.5 }}
             className="bg-card rounded-2xl p-8 shadow-lg relative"
           >
-            <div className="flex flex-col md:flex-row gap-8 items-center">
-              <div className="w-32 h-32 relative rounded-full overflow-hidden shrink-0">
+            <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center">
+              <div className="w-24 h-24 md:w-32 md:h-32 relative rounded-full overflow-hidden shrink-0">
                 <Image
                   src={testimonials[currentIndex].image}
                   alt={testimonials[currentIndex].name}
@@ -108,7 +108,7 @@ export default function Testimonials() {
                   className="object-cover"
                 />
               </div>
-              <div className="flex-1">
+              <div className="flex-1 text-center md:text-left">
                 <p className="text-lg mb-6 italic text-muted-foreground">
                   "{testimonials[currentIndex].content}"
                 </p>

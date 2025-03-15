@@ -89,14 +89,14 @@ export default function Services() {
             Professional video editing and creative services to help you tell your story
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service) => (
             <motion.div
               key={service.id}
               initial={{ opacity: 0, y: 20 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: service.id * 0.1 }}
-              className="p-6 bg-card rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+              className="p-6 sm:p-8 bg-card rounded-lg shadow-lg hover:shadow-xl transition-shadow"
             >
               <div className="mb-4">{service.icon}</div>
               <h3 className="text-xl font-bold mb-2">{service.title}</h3>

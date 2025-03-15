@@ -89,7 +89,7 @@ export default function Portfolio() {
           </p>
         </div>
 
-        <div className="flex justify-center gap-4 mb-12 flex-wrap">
+        <div className="flex flex-wrap justify-center gap-3 mb-8 sm:mb-12 px-4">
           {categories.map((category) => (
             <button
               key={category}
@@ -105,7 +105,7 @@ export default function Portfolio() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredProjects.map((project) => (
             <motion.div
               key={project.id}

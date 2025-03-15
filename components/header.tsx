@@ -88,11 +88,15 @@ export default function Header() {
           size="icon" 
           className={cn(
             "md:hidden transition-colors",
-            isInHeroSection && !scrolled ? "text-[#FFFAEC]" : "text-light"
+            "text-[#FFFAEC] hover:bg-white/10",
           )} 
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {isMenuOpen ? (
+            <X className="h-6 w-6" />
+          ) : (
+            <Menu className="h-6 w-6" />
+          )}
         </Button>
       </div>
 

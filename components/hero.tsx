@@ -15,44 +15,43 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center md:items-center">
+    <section className="relative min-h-screen flex items-start md:items-center">
       {/* Hero image */}
       <div
-        className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+        className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
+          isLoaded ? "opacity-100" : "opacity-0"
+        }`}
         style={{
           backgroundImage: `url(https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Hero2.jpg-TLH1kduV3QdZplyx3g2QGN5GF3uFA3.jpeg)`,
           backgroundSize: "cover",
           backgroundPosition: "center right",
         }}
-      >
-        {/* Gradient overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/30 md:bg-black/20"></div>
-      </div>
+      />
 
       {/* Content */}
       <div className="container relative z-20 px-4 md:px-6">
         <div
-          className={`max-w-2xl transition-all duration-1000 mt-20 md:mt-0 ${
+          className={`max-w-2xl transition-all duration-1000 mt-[60vh] sm:mt-[40vh] md:mt-0 ${
             isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#FFFAEC] mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#FFFAEC] mb-6 leading-tight">
             <RevealText 
               text="I'm a creative mind," 
               className="inline-block whitespace-nowrap" 
               as="span" 
               delay={0.5} 
             />
-            <span className="block mt-4 sm:mt-2 text-hero">
+            <span className="block mt-2 text-hero">
               <SplitText animation="slide">tell, visualize, execute stories</SplitText>
             </span>
           </h1>
 
-          <p className="text-lg sm:text-xl md:text-2xl text-[#FFFAEC]/90 mb-8 sm:mb-10 max-w-xl">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#FFFAEC]/90 mb-8 sm:mb-10">
             Find inspiration, share your vision
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-6">
             <MagneticButton 
               asChild 
               size="lg" 

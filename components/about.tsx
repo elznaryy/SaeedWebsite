@@ -52,8 +52,8 @@ export default function About() {
     <section id="about" className="py-20 bg-[#FFFAEC]">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col md:flex-row gap-12 items-center">
-          <div className="md:w-1/2 relative">
-            <div className="relative z-10 overflow-hidden rounded-lg shadow-xl">
+          <div className="md:w-1/2 relative px-6 sm:px-0 mb-8 md:mb-0">
+            <div className="relative overflow-hidden rounded-lg shadow-xl">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/website%202.jpg-qsw73q3cIyt6HqX22fzyRzZPWUo8Tw.jpeg"
                 alt="Saeed"
@@ -62,11 +62,6 @@ export default function About() {
                 className="w-full h-auto object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
-
-            {/* Decorative elements */}
-            <div className="absolute -top-6 -left-6 w-24 h-24 border-2 border-[#578E7E] rounded-lg z-0"></div>
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 border-2 border-[#578E7E] rounded-lg z-0"></div>
-            <div className="absolute top-1/2 -right-4 transform -translate-y-1/2 w-8 h-8 bg-[#578E7E] rounded-full z-0"></div>
           </div>
 
           <div className="md:w-1/2">
@@ -82,7 +77,7 @@ export default function About() {
               </h2>
 
               <div className="space-y-8 text-[#3D3D3D]">
-                <p className="text-base md:text-lg lg:text-xl leading-relaxed reveal-on-scroll" data-delay="0.2">
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed reveal-on-scroll" data-delay="0.2">
                   When it comes to the intersection of storytelling, creativity, and digital strategy, I bring a unique
                   perspective. With a background spanning creative copywriting, content direction, social media strategy,
                   and filmmaking, I bring ideas to life through compelling ad campaigns, impactful brand storytelling, and
@@ -97,7 +92,7 @@ export default function About() {
                 </p>
               </div>
 
-              <div ref={statsRef} className="grid grid-cols-2 gap-4 mt-12 reveal-on-scroll" data-delay="0.4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 sm:mt-12">
                 <div className="bg-[#F5ECD5] p-6 rounded-lg shadow-md transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                   <h3 className="font-bold text-[#3D3D3D] text-base md:text-lg mb-1">Experience</h3>
                   <p className="text-[#578E7E] text-xl md:text-2xl font-bold">
