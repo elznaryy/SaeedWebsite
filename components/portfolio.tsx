@@ -7,8 +7,9 @@ interface Project {
   id: number
   title: string
   category: string
-  vimeoId: string
-  vimeoHash: string
+  vimeoId?: string
+  vimeoHash?: string
+  youtubeId?: string
   description: string
 }
 
@@ -77,13 +78,12 @@ const projects: Project[] = [
     vimeoHash: "dedaa0f348",
     description: "The first programming education podcast in the MENA region, hosted by me, bringing coding knowledge to Arabic speakers.",
   },
-   {
-    id: 2,
-    title: "Corporate Video",
+  {
+    id: 9,
+    title: "Sample YouTube Video",
     category: "Commercial",
-    vimeoId: "896503877",
-    vimeoHash: "515f52cd43",
-    description: "Professional corporate video production",
+    youtubeId: "iXLor_CbJqk",
+    description: "A sample YouTube video showcasing professional video production and editing skills.",
   },
 ]
 
@@ -163,14 +163,25 @@ export default function Portfolio() {
               className="bg-card rounded-xl overflow-hidden shadow-lg group"
             >
               <div className="relative aspect-video">
-                <iframe
-                  title={project.title}
-                  src={`https://player.vimeo.com/video/${project.vimeoId}?h=${project.vimeoHash}&title=0&byline=0&portrait=0`}
-                  className="absolute top-0 left-0 w-full h-full"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  style={{ border: 0 }}
-                  loading="lazy"
-                ></iframe>
+                {project.youtubeId ? (
+                  <iframe
+                    title={project.title}
+                    src={`https://www.youtube.com/embed/${project.youtubeId}`}
+                    className="absolute top-0 left-0 w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                  ></iframe>
+                ) : (
+                  <iframe
+                    title={project.title}
+                    src={`https://player.vimeo.com/video/${project.vimeoId}?h=${project.vimeoHash}&title=0&byline=0&portrait=0`}
+                    className="absolute top-0 left-0 w-full h-full"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                  ></iframe>
+                )}
               </div>
               <div className="p-6">
                 <div className="flex items-center justify-between mb-3">
