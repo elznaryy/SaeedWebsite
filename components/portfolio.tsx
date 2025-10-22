@@ -77,6 +77,14 @@ const projects: Project[] = [
     vimeoHash: "dedaa0f348",
     description: "The first programming education podcast in the MENA region, hosted by me, bringing coding knowledge to Arabic speakers.",
   },
+   {
+    id: 2,
+    title: "Corporate Video",
+    category: "Commercial",
+    vimeoId: "896503877",
+    vimeoHash: "515f52cd43",
+    description: "Professional corporate video production",
+  },
 ]
 
 export default function Portfolio() {
