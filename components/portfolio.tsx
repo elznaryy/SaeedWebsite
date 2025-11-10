@@ -22,20 +22,20 @@ const projects: Project[] = [
     description: "2025 Saudi national day Ad",
   },
   {
-    id: 2,
-    title: "Rubex ",
+    id: 2, // New project for Neweast X Isuzu
+    title: "Neweast X Isuzu",
     category: "Commercial",
-    vimeoId: "896503877",
-    vimeoHash: "515f52cd43",
-    description: "Factory commercial Ad",
+    vimeoId: "1087486372",
+    vimeoHash: "fd44e7715d",
+    description: "A Fully Ai generated Ad ",
   },
   {
-    id: 3,
-    title: "Owl coffee Ad",
-    category: "Documentary",
-    vimeoId: "733672862",
-    vimeoHash: "c31bfb918c",
-    description: "Cafe Commercial Ad",
+    id: 3, // Abbott X Kuwait Blood Bank
+    title: "Abbott X Kuwait Blood Bank",
+    category: "Campaign",
+    vimeoId: "1096243125",
+    vimeoHash: "58379d674f",
+    description: "Blood awareness campaign",
   },
   {
     id: 4,
@@ -86,20 +86,20 @@ const projects: Project[] = [
     description: "first Ad and camera operator in a commercial song",
   },
   {
-    id: 10, // New project for Neweast X Isuzu
-    title: "Neweast X Isuzu",
+    id: 10,
+    title: "Rubex ",
     category: "Commercial",
-    vimeoId: "1087486372",
-    vimeoHash: "fd44e7715d",
-    description: "A Fully Ai generated Ad ",
+    vimeoId: "896503877",
+    vimeoHash: "515f52cd43",
+    description: "Factory commercial Ad",
   },
   {
-    id: 11, // Abbott X Kuwait Blood Bank
-    title: "Abbott X Kuwait Blood Bank",
-    category: "Campaign",
-    vimeoId: "1096243125",
-    vimeoHash: "58379d674f",
-    description: "Blood awareness campaign",
+    id: 11,
+    title: "Owl coffee Ad",
+    category: "Documentary",
+    vimeoId: "733672862",
+    vimeoHash: "c31bfb918c",
+    description: "Cafe Commercial Ad",
   },
   {
     id: 12, // Tesla Manager X Gammal Tech
