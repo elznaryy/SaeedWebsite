@@ -85,6 +85,14 @@ const projects: Project[] = [
     youtubeId: "iXLor_CbJqk",
     description: "A sample YouTube video showcasing professional video production and editing skills.",
   },
+  {
+    id: 10, // New project for Neweast X Isuzu
+    title: "Neweast X Isuzu",
+    category: "Commercial",
+    vimeoId: "1087486372",
+    vimeoHash: "fd44e7715d",
+    description: "A collaboration video between Neweast and Isuzu showcasing cutting-edge automotive technology.",
+  },
 ]
 
 export default function Portfolio() {
