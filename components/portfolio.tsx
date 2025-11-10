@@ -172,7 +172,7 @@ export default function Portfolio() {
             Featured <span className="text-primary">Projects</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A selection of my best video editing and production work
+            A selection of my creative work
           </p>
         </div>
 
