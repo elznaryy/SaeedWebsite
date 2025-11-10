@@ -8,35 +8,35 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 const testimonials = [
   {
     id: 1,
-    name: "Gammal Tech",
-    position: "Technology Education",
-    content:
+    name: "Abdurrahman Al Gammal",
+    position: "CEO of Gammal Tech",
+    content
       "Saeed was the creative mastermind behind our brand in the MENA region. He led the media production team and managed ad campaigns that truly told the world who we are. His ability to create sustainable content for our main page was invaluable, and he even pioneered Egypt's first programming podcast at a time when it was just an idea. His vision and execution made a lasting impact on our brand.",
     image: "https://media.licdn.com/dms/image/v2/D4D03AQEMsGqLqAr-tA/profile-displayphoto-shrink_800_800/B4DZbKgA.TGUAg-/0/1747154115259?e=1764201600&v=beta&t=ZHTEQVREl4-5kfUdJprGD0YALCq7b-b8PnAhD0V8JiY",
   },
   {
     id: 2,
-    name: "Ehab",
-    position: "Iskala",
+    name: "Ehab Darwish",
+    position: "CEO of Iskala ",
     content:
       "What I appreciate most about Saeed Is that he handles all the technical aspects so I don't have to. He delivers creative content and visuals while giving me the space to share my input when needed. This not only saves me a lot of time but also ensures I get high-quality videos that I can truly rely on for my business.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/iskala-M0pZKgSg5uNf1gC5ejJcmVz2xqHITD.png",
+    image: "https://media.licdn.com/dms/image/v2/D4D03AQHnjUIMKO-VrA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1710979691069?e=1764201600&v=beta&t=ukiaxbJ5iOQpSxzgNmljZd1_NLKnRnZAHAP3mnfs7iY",
   },
   {
     id: 3,
     name: "Neom",
-    position: "Smart City Project",
+    position: "Upskill filmmaking camp",
     content:
       "We had a very tight timeframe and a lot to get done for our camp's content. Saeed not only met the deadline sooner than expected but also delivered professional content directions that exceeded our expectations. He's a creative mind with a hard working mentality—someone you can truly rely on to get the job done right.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Neom-1KO0f7fPhlUsYjvdcEGom2RsU9kIhs.png",
+    image: "https://images.seeklogo.com/logo-png/35/1/neom-logo-png_seeklogo-358578.png",
   },
   {
     id: 4,
     name: "Rasha",
-    position: "Our Only World",
+    position: "Client manager",
     content:
       "I truly appreciated how Saeed brought the story to life even before we started shooting. His ability to translate our vision into a storyboard that closely matched the final video was remarkable. It made the entire process seamless, and I felt completely at ease knowing the project was in his hands. The end result was exactly what I had hoped for.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/our-only-world-k9PaVxMQ0uXDDLnCH4GG6BTR2sNgvY.png",
+    image: "https://media.licdn.com/dms/image/v2/D4D03AQGHwVMpeg6Igw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1700673907430?e=1764201600&v=beta&t=EhPrT6UQ6YilY1oP8DEt2FkLVAvMkOP6K-PiARxMDKU",
   },
 ]
 
