@@ -96,7 +96,7 @@ const projects: Project[] = [
   {
     id: 11,
     title: "Owl coffee Ad",
-    category: "Documentary",
+    category: "Commercial",
     vimeoId: "733672862",
     vimeoHash: "c31bfb918c",
     description: "Cafe Commercial Ad",
