@@ -83,7 +83,7 @@ const projects: Project[] = [
     title: "Sudair Saudi national day",
     category: "Commercial",
     youtubeId: "iXLor_CbJqk",
-    description: "A sample YouTube video showcasing professional video production and editing skills.",
+    description: "2025 Saudi national day Ad",
   },
   {
     id: 10, // New project for Neweast X Isuzu
@@ -91,7 +91,7 @@ const projects: Project[] = [
     category: "Commercial",
     vimeoId: "1087486372",
     vimeoHash: "fd44e7715d",
-    description: "A collaboration video between Neweast and Isuzu showcasing cutting-edge automotive technology.",
+    description: "A Fully Ai generated Ad ",
   },
 ]
 
