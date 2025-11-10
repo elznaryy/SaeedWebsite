@@ -22,15 +22,15 @@ const projects: Project[] = [
     description: "2025 Saudi national day Ad",
   },
   {
-    id: 2, // New project for Neweast X Isuzu
+    id: 2,
     title: "Neweast X Isuzu",
     category: "Commercial",
     vimeoId: "1087486372",
     vimeoHash: "fd44e7715d",
-    description: "A Fully Ai generated Ad ",
+    description: "A Fully AI-generated Ad",
   },
   {
-    id: 3, // Abbott X Kuwait Blood Bank
+    id: 3,
     title: "Abbott X Kuwait Blood Bank",
     category: "Campaign",
     vimeoId: "1096243125",
@@ -83,11 +83,11 @@ const projects: Project[] = [
     category: "Commercial",
     vimeoId: "896506468",
     vimeoHash: "ee959d2c0b",
-    description: "first Ad and camera operator in a commercial song",
+    description: "First Ad and camera operator in a commercial song",
   },
   {
     id: 10,
-    title: "Rubex ",
+    title: "Rubex",
     category: "Commercial",
     vimeoId: "896503877",
     vimeoHash: "515f52cd43",
@@ -102,14 +102,14 @@ const projects: Project[] = [
     description: "Cafe Commercial Ad",
   },
   {
-    id: 12, // Tesla Manager X Gammal Tech
+    id: 12,
     title: "Tesla Manager X Gammal Tech",
     category: "Interview",
     youtubeId: "iCTEYPwvhCQ",
     description: "Educational interview for awareness",
   },
   {
-    id: 13, // Monlycke X Soliman Alhabib
+    id: 13,
     title: "Monlycke X Soliman Alhabib",
     category: "Campaign",
     vimeoId: "1128620587",
@@ -117,8 +117,8 @@ const projects: Project[] = [
     description: "Patient awareness teaser video",
   },
   {
-    id: 14, // Whites Hygiene Campaign
-    title: "Whites",
+    id: 14,
+    title: "Whites Hygiene Campaign",
     category: "Campaign",
     vimeoId: "1096217860",
     vimeoHash: "33d0d9d8af",
@@ -240,4 +240,3 @@ export default function Portfolio() {
     </section>
   )
 }
-
