@@ -93,6 +93,37 @@ const projects: Project[] = [
     vimeoHash: "fd44e7715d",
     description: "A Fully Ai generated Ad ",
   },
+  {
+    id: 11, // Abbott X Kuwait Blood Bank
+    title: "Abbott X Kuwait Blood Bank",
+    category: "Campaign",
+    vimeoId: "1096243125",
+    vimeoHash: "58379d674f",
+    description: "Blood awareness campaign",
+  },
+  {
+    id: 12, // Tesla Manager X Gammal Tech
+    title: "Tesla Manager X Gammal Tech",
+    category: "Interview",
+    youtubeId: "iCTEYPwvhCQ",
+    description: "Educational interview for awareness",
+  },
+  {
+    id: 13, // Monlycke X Soliman Alhabib
+    title: "Monlycke X Soliman Alhabib",
+    category: "Campaign",
+    vimeoId: "1128620587",
+    vimeoHash: "a8c511dbf8",
+    description: "Patient awareness teaser video",
+  },
+  {
+    id: 14, // Whites Hygiene Campaign
+    title: "Whites",
+    category: "Campaign",
+    vimeoId: "1096217860",
+    vimeoHash: "33d0d9d8af",
+    description: "Whites hygiene campaign through Saudi Arabia",
+  },
 ]
 
 export default function Portfolio() {
