@@ -16,26 +16,27 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "Sudair Saudi national day",
+    title: "L,b3eed Song",
     category: "Commercial",
-    youtubeId: "iXLor_CbJqk",
-    description: "2025 Saudi national day Ad",
+    vimeoId: "896506468",
+    vimeoHash: "ee959d2c0b",
+    description: "first Ad and camera operator in a commercial song",
   },
   {
     id: 2,
-    title: "Neweast X Isuzu",
+    title: "Rubex ",
     category: "Commercial",
-    vimeoId: "1087486372",
-    vimeoHash: "fd44e7715d",
-    description: "A Fully AI-generated Ad",
+    vimeoId: "896503877",
+    vimeoHash: "515f52cd43",
+    description: "Factory commercial Ad",
   },
   {
     id: 3,
-    title: "Abbott X Kuwait Blood Bank",
-    category: "Campaign",
-    vimeoId: "1096243125",
-    vimeoHash: "58379d674f",
-    description: "Blood awareness campaign",
+    title: "Owl coffee Ad",
+    category: "Documentary",
+    vimeoId: "733672862",
+    vimeoHash: "c31bfb918c",
+    description: "Cafe Commercial Ad",
   },
   {
     id: 4,
@@ -79,51 +80,12 @@ const projects: Project[] = [
   },
   {
     id: 9,
-    title: "L,b3eed Song",
+    title: "Sudair Saudi national day",
     category: "Commercial",
-    vimeoId: "896506468",
-    vimeoHash: "ee959d2c0b",
-    description: "First Ad and camera operator in a commercial song",
+    youtubeId: "iXLor_CbJqk",
+    description: "A sample YouTube video showcasing professional video production and editing skills.",
   },
-  {
-    id: 10,
-    title: "Rubex",
-    category: "Commercial",
-    vimeoId: "896503877",
-    vimeoHash: "515f52cd43",
-    description: "Factory commercial Ad",
-  },
-  {
-    id: 11,
-    title: "Owl coffee Ad",
-    category: "Commercial",
-    vimeoId: "733672862",
-    vimeoHash: "c31bfb918c",
-    description: "Cafe Commercial Ad",
-  },
-  {
-    id: 12,
-    title: "Tesla Manager X Gammal Tech",
-    category: "Interview",
-    youtubeId: "iCTEYPwvhCQ",
-    description: "Educational interview for awareness",
-  },
-  {
-    id: 13,
-    title: "Monlycke X Soliman Alhabib",
-    category: "Campaign",
-    vimeoId: "1128620587",
-    vimeoHash: "a8c511dbf8",
-    description: "Patient awareness teaser video",
-  },
-  {
-    id: 14,
-    title: "Whites Hygiene Campaign",
-    category: "Campaign",
-    vimeoId: "1096217860",
-    vimeoHash: "33d0d9d8af",
-    description: "Whites hygiene campaign through Saudi Arabia",
-  },
+  
 ]
 
 export default function Portfolio() {
@@ -172,7 +134,7 @@ export default function Portfolio() {
             Featured <span className="text-primary">Projects</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A selection of my creative work
+            A selection of my best video editing and production work
           </p>
         </div>
 
@@ -240,3 +202,43 @@ export default function Portfolio() {
     </section>
   )
 }
+
+
+
+I want you also to add the following: 
+1)
+Vimeo embed link: 
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/1096243125?h=58379d674f" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>   name:  Abbott X Kuwait blood bank 
+
+Description:
+Blood awareness campaign
+
+1.  YouTube embed code: 
+
+<iframe width="1152" height="601" src="https://www.youtube.com/embed/iCTEYPwvhCQ" title="الامتحان النهائي في جمال تك Gammal Tech Final Exam" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Name:  Tesla manager X Gammal tech
+
+Description: 
+Educational interview for awareness
+
+
+3.
+ Vimeo embed link: 
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/1128620587?h=a8c511dbf8" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe> 
+
+Name: 
+Monlycke X Soliman Alhabib 
+
+Description : 
+Patient awareness teaser video 
+
+
+4.
+Vimeo embed link: 
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/1096217860?h=33d0d9d8af" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe> 
+
+Name:  whites 
+
+Description: 
+Whites hygiene campaign through Saudi Arabia 
