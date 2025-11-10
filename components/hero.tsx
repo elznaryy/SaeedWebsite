@@ -43,12 +43,12 @@ export default function Hero() {
               delay={0.5} 
             />
             <span className="block mt-2 text-hero">
-              <SplitText animation="slide">tell, visualize, execute stories</SplitText>
+              <SplitText animation="slide">tell,visualize,execute stories</SplitText>
             </span>
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#FFFAEC]/90 mb-8 sm:mb-10">
-            Find inspiration, share your vision
+            Find inspiration&share your vision
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
