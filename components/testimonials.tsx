@@ -12,7 +12,7 @@ const testimonials = [
     position: "Technology Education",
     content:
       "Saeed was the creative mastermind behind our brand in the MENA region. He led the media production team and managed ad campaigns that truly told the world who we are. His ability to create sustainable content for our main page was invaluable, and he even pioneered Egypt's first programming podcast at a time when it was just an idea. His vision and execution made a lasting impact on our brand.",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/gammal-tech-qZA0PFXiCyZFfOfsDtHpmmCGZ4DQah.png",
+    image: "https://media.licdn.com/dms/image/v2/D4D03AQEMsGqLqAr-tA/profile-displayphoto-shrink_800_800/B4DZbKgA.TGUAg-/0/1747154115259?e=1764201600&v=beta&t=ZHTEQVREl4-5kfUdJprGD0YALCq7b-b8PnAhD0V8JiY",
   },
   {
     id: 2,
