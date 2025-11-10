@@ -78,6 +78,7 @@ export default function About() {
 
               <div className="space-y-8 text-[#3D3D3D]">
                 <p className="text-base sm:text-lg md:text-xl leading-relaxed reveal-on-scroll" data-delay="0.2">
+                  
                   When it comes to the intersection of storytelling, creativity, and digital strategy, I bring a unique
                   perspective. With a background spanning creative copywriting, content direction, social media strategy,
                   and filmmaking, I bring ideas to life through compelling ad campaigns, impactful brand storytelling, and
