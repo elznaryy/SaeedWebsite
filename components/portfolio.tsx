@@ -1,7 +1,7 @@
 "use client"
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
 
 interface Project {
   id: number
@@ -32,15 +32,15 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    title: "Owl Coffee",
-    category: "Commercial",
+    title: "Owl Coffee Ad",
+    category: "Documentary",
     vimeoId: "733672862",
     vimeoHash: "c31bfb918c",
-    description: "Cafe commercial campaign",
+    description: "Cafe commercial ad",
   },
   {
     id: 4,
-    title: "NEOM Film Camp",
+    title: "NEOM Upscale Film Making Camp",
     category: "Commercial",
     vimeoId: "1062044941",
     vimeoHash: "b4048c75ca",
@@ -52,15 +52,15 @@ const projects: Project[] = [
     category: "Commercial",
     vimeoId: "1062051132",
     vimeoHash: "77247f5a99",
-    description: "Environmental awareness music video",
+    description: "Environmental awareness song with visual storytelling",
   },
   {
     id: 6,
-    title: "Gammal Tech Documentary",
+    title: "Gammal Tech Short Documentary",
     category: "Documentary",
     vimeoId: "1062055541",
     vimeoHash: "3910731b5f",
-    description: "Tech education revolution in MENA",
+    description: "Tech education revolution in the MENA region",
   },
   {
     id: 7,
@@ -68,7 +68,7 @@ const projects: Project[] = [
     category: "Series",
     vimeoId: "1062079476",
     vimeoHash: "cb033e182b",
-    description: "Educational creative series",
+    description: "Educational storytelling and media insights series",
   },
   {
     id: 8,
@@ -76,14 +76,14 @@ const projects: Project[] = [
     category: "Series",
     vimeoId: "1062430579",
     vimeoHash: "dedaa0f348",
-    description: "First programming podcast in MENA",
+    description: "First programming education podcast in MENA",
   },
   {
     id: 9,
     title: "Sudair Saudi National Day",
     category: "Commercial",
     youtubeId: "iXLor_CbJqk",
-    description: "Saudi national day campaign",
+    description: "Saudi national day campaign video",
   },
   {
     id: 10,
@@ -98,7 +98,7 @@ const projects: Project[] = [
     title: "Tesla Manager X Gammal Tech",
     category: "Interview",
     youtubeId: "iCTEYPwvhCQ",
-    description: "Educational awareness interview",
+    description: "Educational interview for awareness",
   },
   {
     id: 12,
@@ -106,7 +106,7 @@ const projects: Project[] = [
     category: "Commercial",
     vimeoId: "1128620587",
     vimeoHash: "a8c511dbf8",
-    description: "Patient awareness teaser",
+    description: "Patient awareness teaser video",
   },
   {
     id: 13,
@@ -114,104 +114,131 @@ const projects: Project[] = [
     category: "Commercial",
     vimeoId: "1096217860",
     vimeoHash: "33d0d9d8af",
-    description: "Whites hygiene campaign in Saudi Arabia",
+    description: "Whites hygiene campaign across Saudi Arabia",
   },
 ]
 
 export default function Portfolio() {
-  const [selected, setSelected] = useState<Project | null>(null)
+  const [activeCategory, setActiveCategory] = useState("all")
+  const [isVisible, setIsVisible] = useState(false)
 
-  const categories = [...new Set(projects.map((p) => p.category))]
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    const section = document.getElementById("portfolio")
+    if (section) observer.observe(section)
+
+    return () => {
+      if (section) observer.unobserve(section)
+    }
+  }, [])
+
+  const filteredProjects =
+    activeCategory === "all"
+      ? projects
+      : projects.filter((project) => project.category === activeCategory)
+
+  const categories = ["all", ...new Set(projects.map((project) => project.category))]
 
   return (
-    <section className="py-20 bg-black text-white">
-      <div className="container mx-auto px-6">
+    <section id="portfolio" className="py-20 bg-background">
+      <div className="container px-4 md:px-6 mx-auto">
 
-        <h2 className="text-4xl font-bold mb-12">
-          Featured Projects
-        </h2>
-
-        {categories.map((category) => (
-          <div key={category} className="mb-12">
-
-            <h3 className="text-2xl font-semibold mb-6">
-              {category}
-            </h3>
-
-            <div className="flex gap-6 overflow-x-auto pb-4">
-
-              {projects
-                .filter((p) => p.category === category)
-                .map((project) => (
-
-                  <motion.div
-                    key={project.id}
-                    whileHover={{ scale: 1.1 }}
-                    className="min-w-[320px] bg-neutral-900 rounded-xl cursor-pointer overflow-hidden"
-                    onClick={() => setSelected(project)}
-                  >
-
-                    <div className="aspect-video bg-black flex items-center justify-center">
-                      <span className="text-sm opacity-70">
-                        ▶ Preview
-                      </span>
-                    </div>
-
-                    <div className="p-4">
-                      <h4 className="font-bold">{project.title}</h4>
-                      <p className="text-sm opacity-70">
-                        {project.description}
-                      </p>
-                    </div>
-
-                  </motion.div>
-
-                ))}
-            </div>
+        <div className="text-center mb-16">
+          <div className="mb-2 inline-block py-1 px-3 bg-primary/10 rounded-full">
+            <span className="text-sm font-medium text-primary">Portfolio</span>
           </div>
-        ))}
 
-        <AnimatePresence>
+          <h2 className="text-3xl font-bold mb-4">
+            Featured <span className="text-primary">Projects</span>
+          </h2>
 
-          {selected && (
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            A selection of my best video editing and production work
+          </p>
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-4 py-2 rounded-full capitalize ${
+                activeCategory === category
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-primary/10 hover:bg-primary/20"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project) => (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
-              onClick={() => setSelected(null)}
+              key={project.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: project.id * 0.1 }}
+              className="bg-card rounded-xl overflow-hidden shadow-lg group"
             >
 
-              <motion.div
-                initial={{ scale: 0.8 }}
-                animate={{ scale: 1 }}
-                className="w-[90%] max-w-4xl"
-              >
+              <div className="relative aspect-video">
 
-                {selected.youtubeId ? (
-
+                {project.youtubeId ? (
                   <iframe
-                    src={`https://www.youtube.com/embed/${selected.youtubeId}`}
-                    className="w-full aspect-video"
-                    allow="autoplay; fullscreen"
+                    title={project.title}
+                    src={`https://www.youtube.com/embed/${project.youtubeId}`}
+                    className="absolute top-0 left-0 w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    style={{ border: 0 }}
+                    loading="lazy"
                   />
-
                 ) : (
-
                   <iframe
-                    src={`https://player.vimeo.com/video/${selected.vimeoId}?h=${selected.vimeoHash}`}
-                    className="w-full aspect-video"
-                    allow="autoplay; fullscreen"
+                    title={project.title}
+                    src={`https://player.vimeo.com/video/${project.vimeoId}?h=${project.vimeoHash}&title=0&byline=0&portrait=0`}
+                    className="absolute top-0 left-0 w-full h-full"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    style={{ border: 0 }}
+                    loading="lazy"
                   />
-
                 )}
 
-              </motion.div>
+              </div>
+
+              <div className="p-6">
+
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+
+                  <span className="text-sm text-primary bg-primary/10 px-3 py-1 rounded-full">
+                    {project.category}
+                  </span>
+                </div>
+
+                <p className="text-muted-foreground">
+                  {project.description}
+                </p>
+
+              </div>
 
             </motion.div>
-          )}
+          ))}
+        </div>
 
-        </AnimatePresence>
       </div>
     </section>
   )
