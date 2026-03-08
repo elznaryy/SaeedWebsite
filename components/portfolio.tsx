@@ -20,7 +20,7 @@ const projects: Project[] = [
     category: "Commercial",
     vimeoId: "896506468",
     vimeoHash: "ee959d2c0b",
-    description: "First AD and camera operator in a commercial song",
+    description: "first Ad and camera operator in a commercial song",
   },
   {
     id: 2,
@@ -28,23 +28,23 @@ const projects: Project[] = [
     category: "Commercial",
     vimeoId: "896503877",
     vimeoHash: "515f52cd43",
-    description: "Factory commercial ad",
+    description: "Factory commercial Ad",
   },
   {
     id: 3,
-    title: "Owl Coffee Ad",
+    title: "Owl coffee Ad",
     category: "Documentary",
     vimeoId: "733672862",
     vimeoHash: "c31bfb918c",
-    description: "Cafe commercial ad",
+    description: "Cafe Commercial Ad",
   },
   {
     id: 4,
-    title: "NEOM Upscale Film Making Camp",
+    title: "NEOM-Upscale Film Making Camp",
     category: "Commercial",
     vimeoId: "1062044941",
     vimeoHash: "b4048c75ca",
-    description: "Full filmmaking camp content",
+    description: "A full filmmaking camp content",
   },
   {
     id: 5,
@@ -52,15 +52,17 @@ const projects: Project[] = [
     category: "Commercial",
     vimeoId: "1062051132",
     vimeoHash: "77247f5a99",
-    description: "Environmental awareness song with visual storytelling",
+    description:
+      "Created and directed the storyline for this environmental awareness song.",
   },
   {
     id: 6,
-    title: "Gammal Tech Short Documentary",
+    title: "Gammal Tech short Documentary",
     category: "Documentary",
     vimeoId: "1062055541",
     vimeoHash: "3910731b5f",
-    description: "Tech education revolution in the MENA region",
+    description:
+      "A deep dive into one of the most important tech educational companies in MENA.",
   },
   {
     id: 7,
@@ -68,7 +70,8 @@ const projects: Project[] = [
     category: "Series",
     vimeoId: "1062079476",
     vimeoHash: "cb033e182b",
-    description: "Educational storytelling and media insights series",
+    description:
+      "Educational series delivering insights for aspiring creatives.",
   },
   {
     id: 8,
@@ -76,15 +79,18 @@ const projects: Project[] = [
     category: "Series",
     vimeoId: "1062430579",
     vimeoHash: "dedaa0f348",
-    description: "First programming education podcast in MENA",
+    description: "The first programming education podcast in the MENA region",
   },
   {
     id: 9,
     title: "Sudair Saudi National Day",
     category: "Commercial",
     youtubeId: "iXLor_CbJqk",
-    description: "Saudi national day campaign video",
+    description: "Professional video production and editing showcase.",
   },
+
+  // NEW PROJECTS
+
   {
     id: 10,
     title: "Abbott X Kuwait Blood Bank",
@@ -114,7 +120,7 @@ const projects: Project[] = [
     category: "Commercial",
     vimeoId: "1096217860",
     vimeoHash: "33d0d9d8af",
-    description: "Whites hygiene campaign across Saudi Arabia",
+    description: "Whites hygiene campaign through Saudi Arabia",
   },
 ]
 
@@ -145,14 +151,16 @@ export default function Portfolio() {
   const filteredProjects =
     activeCategory === "all"
       ? projects
-      : projects.filter((project) => project.category === activeCategory)
+      : projects.filter((p) => p.category === activeCategory)
 
-  const categories = ["all", ...new Set(projects.map((project) => project.category))]
+  const categories = [
+    "all",
+    ...new Set(projects.map((project) => project.category)),
+  ]
 
   return (
     <section id="portfolio" className="py-20 bg-background">
       <div className="container px-4 md:px-6 mx-auto">
-
         <div className="text-center mb-16">
           <div className="mb-2 inline-block py-1 px-3 bg-primary/10 rounded-full">
             <span className="text-sm font-medium text-primary">Portfolio</span>
@@ -167,7 +175,7 @@ export default function Portfolio() {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-3 mb-10">
           {categories.map((category) => (
             <button
               key={category}
@@ -189,56 +197,36 @@ export default function Portfolio() {
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: project.id * 0.1 }}
-              className="bg-card rounded-xl overflow-hidden shadow-lg group"
+              transition={{ duration: 0.5, delay: project.id * 0.05 }}
+              className="bg-card rounded-xl overflow-hidden shadow-lg"
             >
-
               <div className="relative aspect-video">
-
                 {project.youtubeId ? (
                   <iframe
-                    title={project.title}
                     src={`https://www.youtube.com/embed/${project.youtubeId}`}
-                    className="absolute top-0 left-0 w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    style={{ border: 0 }}
+                    className="absolute w-full h-full"
+                    allow="autoplay; encrypted-media"
                     loading="lazy"
                   />
                 ) : (
                   <iframe
-                    title={project.title}
-                    src={`https://player.vimeo.com/video/${project.vimeoId}?h=${project.vimeoHash}&title=0&byline=0&portrait=0`}
-                    className="absolute top-0 left-0 w-full h-full"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    style={{ border: 0 }}
+                    src={`https://player.vimeo.com/video/${project.vimeoId}?h=${project.vimeoHash}`}
+                    className="absolute w-full h-full"
+                    allow="autoplay; fullscreen"
                     loading="lazy"
                   />
                 )}
-
               </div>
 
               <div className="p-6">
-
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-
-                  <span className="text-sm text-primary bg-primary/10 px-3 py-1 rounded-full">
-                    {project.category}
-                  </span>
-                </div>
-
-                <p className="text-muted-foreground">
+                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                <p className="text-muted-foreground text-sm">
                   {project.description}
                 </p>
-
               </div>
-
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   )
