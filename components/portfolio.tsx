@@ -1,7 +1,7 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 
 interface Project {
   id: number
@@ -20,31 +20,31 @@ const projects: Project[] = [
     category: "Commercial",
     vimeoId: "896506468",
     vimeoHash: "ee959d2c0b",
-    description: "first Ad and camera operator in a commercial song",
+    description: "First AD and camera operator in a commercial song",
   },
   {
     id: 2,
-    title: "Rubex ",
+    title: "Rubex",
     category: "Commercial",
     vimeoId: "896503877",
     vimeoHash: "515f52cd43",
-    description: "Factory commercial Ad",
+    description: "Factory commercial ad",
   },
   {
     id: 3,
-    title: "Owl coffee Ad",
-    category: "Documentary",
+    title: "Owl Coffee",
+    category: "Commercial",
     vimeoId: "733672862",
     vimeoHash: "c31bfb918c",
-    description: "Cafe Commercial Ad",
+    description: "Cafe commercial campaign",
   },
   {
     id: 4,
-    title: "NEOM-Upscale Film Making Camp",
+    title: "NEOM Film Camp",
     category: "Commercial",
     vimeoId: "1062044941",
     vimeoHash: "b4048c75ca",
-    description: "A full filmmaking camp content",
+    description: "Full filmmaking camp content",
   },
   {
     id: 5,
@@ -52,15 +52,15 @@ const projects: Project[] = [
     category: "Commercial",
     vimeoId: "1062051132",
     vimeoHash: "77247f5a99",
-    description: "Created and directed the storyline for this environmental awareness song, bringing a powerful message through visual storytelling.",
+    description: "Environmental awareness music video",
   },
   {
     id: 6,
-    title: "Gammal Tech short Documentary",
+    title: "Gammal Tech Documentary",
     category: "Documentary",
     vimeoId: "1062055541",
     vimeoHash: "3910731b5f",
-    description: "A deep dive into one of the most important tech educational companies revolution in MENA region",
+    description: "Tech education revolution in MENA",
   },
   {
     id: 7,
@@ -68,7 +68,7 @@ const projects: Project[] = [
     category: "Series",
     vimeoId: "1062079476",
     vimeoHash: "cb033e182b",
-    description: "An educational series, delivering insights and knowledge for aspiring creatives in the fields of storytelling and digital media.",
+    description: "Educational creative series",
   },
   {
     id: 8,
@@ -76,169 +76,143 @@ const projects: Project[] = [
     category: "Series",
     vimeoId: "1062430579",
     vimeoHash: "dedaa0f348",
-    description: "The first programming education podcast in the MENA region",
+    description: "First programming podcast in MENA",
   },
   {
     id: 9,
-    title: "Sudair Saudi national day",
+    title: "Sudair Saudi National Day",
     category: "Commercial",
     youtubeId: "iXLor_CbJqk",
-    description: "A sample YouTube video showcasing professional video production and editing skills.",
+    description: "Saudi national day campaign",
   },
-  
+  {
+    id: 10,
+    title: "Abbott X Kuwait Blood Bank",
+    category: "Commercial",
+    vimeoId: "1096243125",
+    vimeoHash: "58379d674f",
+    description: "Blood awareness campaign",
+  },
+  {
+    id: 11,
+    title: "Tesla Manager X Gammal Tech",
+    category: "Interview",
+    youtubeId: "iCTEYPwvhCQ",
+    description: "Educational awareness interview",
+  },
+  {
+    id: 12,
+    title: "Monlycke X Soliman Alhabib",
+    category: "Commercial",
+    vimeoId: "1128620587",
+    vimeoHash: "a8c511dbf8",
+    description: "Patient awareness teaser",
+  },
+  {
+    id: 13,
+    title: "Whites Hygiene Campaign",
+    category: "Commercial",
+    vimeoId: "1096217860",
+    vimeoHash: "33d0d9d8af",
+    description: "Whites hygiene campaign in Saudi Arabia",
+  },
 ]
 
 export default function Portfolio() {
-  const [activeCategory, setActiveCategory] = useState("all")
-  const [isVisible, setIsVisible] = useState(false)
+  const [selected, setSelected] = useState<Project | null>(null)
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true)
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
-    const section = document.getElementById("portfolio")
-    if (section) {
-      observer.observe(section)
-    }
-
-    return () => {
-      if (section) {
-        observer.unobserve(section)
-      }
-    }
-  }, [])
-
-  const filteredProjects =
-    activeCategory === "all"
-      ? projects
-      : projects.filter((project) => project.category === activeCategory)
-
-  const categories = ["all", ...new Set(projects.map((project) => project.category))]
+  const categories = [...new Set(projects.map((p) => p.category))]
 
   return (
-    <section id="portfolio" className="py-20 bg-background">
-      <div className="container px-4 md:px-6 mx-auto">
-        <div className="text-center mb-16">
-          <div className="mb-2 inline-block py-1 px-3 bg-primary/10 rounded-full">
-            <span className="text-sm font-medium text-primary">Portfolio</span>
-          </div>
-          <h2 className="text-3xl font-bold mb-4">
-            Featured <span className="text-primary">Projects</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            A selection of my best video editing and production work
-          </p>
-        </div>
+    <section className="py-20 bg-black text-white">
+      <div className="container mx-auto px-6">
 
-        <div className="flex flex-wrap justify-center gap-3 mb-8 sm:mb-12 px-4">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 rounded-full transition-colors capitalize ${
-                activeCategory === category
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-primary/10 hover:bg-primary/20 text-foreground"
-              }`}
-            >
+        <h2 className="text-4xl font-bold mb-12">
+          Featured Projects
+        </h2>
+
+        {categories.map((category) => (
+          <div key={category} className="mb-12">
+
+            <h3 className="text-2xl font-semibold mb-6">
               {category}
-            </button>
-          ))}
-        </div>
+            </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {filteredProjects.map((project) => (
+            <div className="flex gap-6 overflow-x-auto pb-4">
+
+              {projects
+                .filter((p) => p.category === category)
+                .map((project) => (
+
+                  <motion.div
+                    key={project.id}
+                    whileHover={{ scale: 1.1 }}
+                    className="min-w-[320px] bg-neutral-900 rounded-xl cursor-pointer overflow-hidden"
+                    onClick={() => setSelected(project)}
+                  >
+
+                    <div className="aspect-video bg-black flex items-center justify-center">
+                      <span className="text-sm opacity-70">
+                        ▶ Preview
+                      </span>
+                    </div>
+
+                    <div className="p-4">
+                      <h4 className="font-bold">{project.title}</h4>
+                      <p className="text-sm opacity-70">
+                        {project.description}
+                      </p>
+                    </div>
+
+                  </motion.div>
+
+                ))}
+            </div>
+          </div>
+        ))}
+
+        <AnimatePresence>
+
+          {selected && (
             <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: project.id * 0.1 }}
-              className="bg-card rounded-xl overflow-hidden shadow-lg group"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+              onClick={() => setSelected(null)}
             >
-              <div className="relative aspect-video">
-                {project.youtubeId ? (
+
+              <motion.div
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                className="w-[90%] max-w-4xl"
+              >
+
+                {selected.youtubeId ? (
+
                   <iframe
-                    title={project.title}
-                    src={`https://www.youtube.com/embed/${project.youtubeId}`}
-                    className="absolute top-0 left-0 w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    style={{ border: 0 }}
-                    loading="lazy"
-                  ></iframe>
+                    src={`https://www.youtube.com/embed/${selected.youtubeId}`}
+                    className="w-full aspect-video"
+                    allow="autoplay; fullscreen"
+                  />
+
                 ) : (
+
                   <iframe
-                    title={project.title}
-                    src={`https://player.vimeo.com/video/${project.vimeoId}?h=${project.vimeoHash}&title=0&byline=0&portrait=0`}
-                    className="absolute top-0 left-0 w-full h-full"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    style={{ border: 0 }}
-                    loading="lazy"
-                  ></iframe>
+                    src={`https://player.vimeo.com/video/${selected.vimeoId}?h=${selected.vimeoHash}`}
+                    className="w-full aspect-video"
+                    allow="autoplay; fullscreen"
+                  />
+
                 )}
-              </div>
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <span className="text-sm text-primary bg-primary/10 px-3 py-1 rounded-full">
-                    {project.category}
-                  </span>
-                </div>
-                <p className="text-muted-foreground">{project.description}</p>
-              </div>
+
+              </motion.div>
+
             </motion.div>
-          ))}
-        </div>
+          )}
+
+        </AnimatePresence>
       </div>
     </section>
   )
 }
-
-
-
-I want you also to add the following: 
-1)
-Vimeo embed link: 
-<iframe title="vimeo-player" src="https://player.vimeo.com/video/1096243125?h=58379d674f" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>   name:  Abbott X Kuwait blood bank 
-
-Description:
-Blood awareness campaign
-
-1.  YouTube embed code: 
-
-<iframe width="1152" height="601" src="https://www.youtube.com/embed/iCTEYPwvhCQ" title="الامتحان النهائي في جمال تك Gammal Tech Final Exam" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-Name:  Tesla manager X Gammal tech
-
-Description: 
-Educational interview for awareness
-
-
-3.
- Vimeo embed link: 
-<iframe title="vimeo-player" src="https://player.vimeo.com/video/1128620587?h=a8c511dbf8" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe> 
-
-Name: 
-Monlycke X Soliman Alhabib 
-
-Description : 
-Patient awareness teaser video 
-
-
-4.
-Vimeo embed link: 
-<iframe title="vimeo-player" src="https://player.vimeo.com/video/1096217860?h=33d0d9d8af" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe> 
-
-Name:  whites 
-
-Description: 
-Whites hygiene campaign through Saudi Arabia 
